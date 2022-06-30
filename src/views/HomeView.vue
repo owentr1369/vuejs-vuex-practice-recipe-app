@@ -2,12 +2,12 @@
   <div class="home">
     <h1>My Recipes</h1>
 
-    <button>Add new Recipe</button>
+    <button @click="togglePopup">Add new Recipe</button>
     <div class="recipes">
       <!-- Recipes here -->
     </div>
 
-    <div class="add-recipe-popup">
+    <div v-if="popupOpen" class="add-recipe-popup">
       <div class="popup-content">
         <h2>Add new Recipe</h2>
 
@@ -34,7 +34,7 @@
             </div>
             <button>Add step</button>
           </div>
-          <button>Close</button>
+          <button @click="togglePopup">Close</button>
           <button type="submit">Add Recipe</button>
         </form>
       </div>
@@ -45,6 +45,24 @@
 <script>
 export default {
   name: "HomeView",
+  data() {
+    return {
+      newRecipe: {
+        title: "",
+        description: "",
+        ingredients: [],
+        method: [],
+        ingredientRows: 1,
+        methodRows: 1,
+      },
+      popupOpen: false,
+    };
+  },
+  methods: {
+    togglePopup: function () {
+      this.popupOpen = !this.popupOpen;
+    },
+  },
 };
 </script>
 
