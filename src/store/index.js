@@ -45,7 +45,11 @@ export default new Vuex.Store({
     ],
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    ADD_RECIPE(state, recipe) {
+      state.recipes.push(recipe);
+    },
+  },
   actions: {},
   modules: {},
 });

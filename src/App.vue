@@ -14,6 +14,7 @@
 body {
   background-color: #030e1b;
   color: #fff;
+  min-height: 100vh;
 }
 a {
   color: #2aeb74;
