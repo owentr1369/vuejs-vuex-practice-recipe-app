@@ -72,7 +72,7 @@
 </template>
 
 <script>
-// import { useStore } from "vuex";
+import { mapMutations } from "vuex";
 export default {
   name: "HomeView",
   data() {
@@ -88,6 +88,7 @@ export default {
       popupOpen: false,
     };
   },
+  computed: {},
   methods: {
     togglePopup: function () {
       this.popupOpen = !this.popupOpen;
@@ -106,9 +107,11 @@ export default {
         alert("Please enter a title");
         return;
       }
-      console.log(this.newRecipe);
-      // store.commit("ADD_RECIPE", { ...this.newRecipe });
+      console.log("this.newRecipe :>> ", this.newRecipe);
+      // this.ADD_RECIPE(this.$store.state, this.newRecipe);
+      console.log("this.$store.state.recipes :>> ", this.$store.state.recipes);
     },
+    ...mapMutations(["ADD_RECIPE"]),
   },
 };
 </script>
